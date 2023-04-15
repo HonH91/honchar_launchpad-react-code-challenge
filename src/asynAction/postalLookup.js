@@ -1,16 +1,27 @@
 import React from "react";
-import "./styles/style.css";
 
 
-import {addManyPostalAction} from "../store/postalReducer";
+import { useDispatch } from 'react-redux';
+
+//
+
+
+import {getPostalInfo} from "../store/postalReducer";
 
 export const fetchPostal = () => {
   return function (dispatch) {
-    fetch (`https://api.zippopotam.us/us/99501`)
+    fetch(`https://api.zippopotam.us/us/99501`)
     .then (response => response.json())
-    .then (json => dispatch(addManyPostalAction(json)))
+    .then (json => dispatch(getPostalInfo(json)))
   }
 }
+
+
+//function dispatch(){
+    //const dispatch = useDispatch();
+//}
+
+
 
 
 function load() {
@@ -26,4 +37,4 @@ if (loaded) {
     load();
 
     return null;
-  }
+  }*/
